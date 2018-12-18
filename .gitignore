@@ -1,0 +1,4 @@
+*.fq.gz
+*~
+.snakemake
+data

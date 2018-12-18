@@ -1,18 +1,29 @@
+import sys
 from spacegraphcats.snakemake import (catlas_build, catlas_search,
-                                      catlas_extract)
+                                      catlas_extract, catlas_search_input)
+
+sgc_config_file = 'config.yaml'
 
 rule all:
     input:
-        "data/twofoo.fq.gz",
-        catlas_build('config.yaml')
+        catlas_search(sgc_config_file)
 
 rule build:
     input:
         "data/twofoo.fq.gz"
     output:
-        catlas_build('config.yaml')
+        catlas_build(sgc_config_file)
     shell:
-        "spacegraphcats build config.yaml"
+        "{sys.executable} -m spacegraphcats {sgc_config_file} build --nolock"
+
+rule search:
+    input:
+        catlas_search_input(sgc_config_file),
+        catlas_build(sgc_config_file),
+    output:
+        catlas_search(sgc_config_file)
+    shell:
+        "{sys.executable} -m spacegraphcats {sgc_config_file} search --nolock"
 
 #
 # akker-reads.abundtrim.gz is a collection of reads from podar data
