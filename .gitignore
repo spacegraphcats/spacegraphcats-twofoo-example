@@ -2,3 +2,8 @@
 *~
 .snakemake
 data
+bcalm.twofoo.k31.inputlist.txt
+bcalm_to_gxt.log
+twofoo/
+twofoo_k31_r1/
+twofoo_k31_r1_search_oh0/
