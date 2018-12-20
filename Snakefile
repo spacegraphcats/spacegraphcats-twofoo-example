@@ -8,6 +8,10 @@ rule all:
     input:
         catlas_search(sgc_config_file)
 
+rule clean:
+    shell:
+        "{sys.executable} -m spacegraphcats {sgc_config_file} clean"
+
 rule build:
     input:
         "data/twofoo.fq.gz"
