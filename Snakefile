@@ -72,4 +72,4 @@ rule make_twofoo:
     output:
         "data/twofoo.fq.gz"
     shell:
-        "gunzip -c {input} | gzip -9c > twofoo.fq.gz"
+        "gunzip -c {input} | gzip -9c > {output}"
