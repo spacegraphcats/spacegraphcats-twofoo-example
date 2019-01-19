@@ -3,7 +3,7 @@
 This is an example
 [spacegraphcats](https://github.com/spacegraphcats/spacegraphcats/)
 project using some real data from
-[Shakya et al., 2013](https://www.ncbi.nlm.nih.gov/pubmed/2338786), to
+[Shakya et al., 2013](https://www.ncbi.nlm.nih.gov/pubmed/23387867), to
 demonstrate a snakemake-based workflow for spacegraphcats queries.
 
 See
