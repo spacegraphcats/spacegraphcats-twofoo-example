@@ -6,7 +6,8 @@ sgc_config_file = 'config.yaml'
 
 rule all:
     input:
-        catlas_search(sgc_config_file)
+        catlas_search(sgc_config_file),
+        catlas_extract(sgc_config_file)
 
 rule clean:
     shell:
@@ -28,6 +29,15 @@ rule search:
         catlas_search(sgc_config_file)
     shell:
         "{sys.executable} -m spacegraphcats {sgc_config_file} search --nolock"
+
+rule extract:
+    input:
+        catlas_search(sgc_config_file),
+    output:
+        catlas_extract(sgc_config_file)
+    shell:
+        "{sys.executable} -m spacegraphcats {sgc_config_file} extract_reads extract_contigs --nolock"
+
 
 #
 # akker-reads.abundtrim.gz is a collection of reads from podar data
