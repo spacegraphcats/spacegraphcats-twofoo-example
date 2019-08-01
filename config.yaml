@@ -10,4 +10,5 @@ search:
 searchquick:
 - query/63.fa.gz
 shadow_ratio_maxsize: 1000
-
+decompose_minsize: 5000
+decompose_maxsize: 50000
