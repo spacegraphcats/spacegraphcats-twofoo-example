@@ -11,7 +11,7 @@ rule all:
 
 rule clean:
     shell:
-        "{sys.executable} -m spacegraphcats {sgc_config_file} clean"
+        "python -m spacegraphcats run {sgc_config_file} clean"
 
 rule build:
     input:
@@ -19,7 +19,7 @@ rule build:
     output:
         catlas_build(sgc_config_file)
     shell:
-        "{sys.executable} -m spacegraphcats {sgc_config_file} build --nolock"
+        "python -m spacegraphcats run {sgc_config_file} build --nolock"
 
 rule search:
     input:
@@ -28,7 +28,7 @@ rule search:
     output:
         catlas_search(sgc_config_file)
     shell:
-        "{sys.executable} -m spacegraphcats {sgc_config_file} search --nolock"
+        "python -m spacegraphcats run {sgc_config_file} search --nolock"
 
 rule extract:
     input:
@@ -36,7 +36,7 @@ rule extract:
     output:
         catlas_extract(sgc_config_file)
     shell:
-        "{sys.executable} -m spacegraphcats {sgc_config_file} extract_reads extract_contigs --nolock"
+        "python -m spacegraphcats run {sgc_config_file} extract_reads extract_contigs --nolock"
 
 
 #
